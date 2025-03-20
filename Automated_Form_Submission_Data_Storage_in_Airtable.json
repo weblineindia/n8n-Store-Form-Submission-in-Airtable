@@ -1,0 +1,241 @@
+{
+  "name": "Automated Form Submission Data Storage in Airtable",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Create User",
+        "formDescription": "Provide the necessary information here",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name",
+              "placeholder": "Enter Your Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Age",
+              "fieldType": "number",
+              "placeholder": "Enter Your Age",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "email",
+              "fieldType": "email",
+              "placeholder": "Enter Your Email",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "address",
+              "placeholder": "Enter Your Address"
+            },
+            {
+              "fieldLabel": "You have Subscription ?",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Yes"
+                  },
+                  {
+                    "option": "No"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        120,
+        80
+      ],
+      "id": "fef66f10-a3eb-4e71-9493-3d90ebd52fde",
+      "name": "On form submission",
+      "webhookId": "39d82b4d-4d27-40de-a12b-0dafab18bb93",
+      "notesInFlow": true,
+      "notes": "Create User Form"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appy2TylOr6NKs2NM",
+          "mode": "list",
+          "cachedResultName": "UserDataList",
+          "cachedResultUrl": "https://airtable.com/appy2TylOr6NKs2NM"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbluQxDisFi22fbdQ",
+          "mode": "list",
+          "cachedResultName": "Data",
+          "cachedResultUrl": "https://airtable.com/appy2TylOr6NKs2NM/tbluQxDisFi22fbdQ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.Name }}",
+            "Age": "={{ $json.Age }}",
+            "Email": "={{ $json.email }}",
+            "Address": "={{ $json.address }}",
+            "Subscription": "={{ $json['You have Subscription ?'] }}",
+            "Submitted": "={{ $json.submittedAt }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Age",
+              "displayName": "Age",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Address",
+              "displayName": "Address",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Subscription",
+              "displayName": "Subscription",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Submitted",
+              "displayName": "Submitted",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        380,
+        80
+      ],
+      "id": "1745c697-93ca-4374-8d1e-92e047ad7339",
+      "name": "User Data Storage",
+      "notesInFlow": true,
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ygauzo9XGVW33SFD",
+          "name": "Airtable pythontech 2"
+        }
+      },
+      "notes": "Store User Data"
+    },
+    {
+      "parameters": {
+        "content": "Automated Form Submission Data Storage in Airtable",
+        "height": 260,
+        "width": 720
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ac2f27d8-0922-49cc-9e40-316b3de7a4d1",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "This workflow automatically captures data submitted through a form and stores it in Airtable. By using a form submission trigger, the workflow ensures that every time a form is filled out, the data is instantly recorded in Airtable without manual effort. This streamlines data management, making it easy to store and organize form data in a structured database for future reference.",
+        "height": 100,
+        "width": 720
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        280
+      ],
+      "id": "e85c44f2-c268-41b8-9b98-f4ada81b2824",
+      "name": "Sticky Note1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "User Data Storage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "0f8308bb-9f5c-4689-bd76-484b4068692d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "14e4c77104722ab186539dfea5182e419aecc83d85963fe13f6de862c875ebfa"
+  },
+  "id": "QObDE85a2ArfJkxV",
+  "tags": [
+    {
+      "createdAt": "2025-03-17T13:06:42.859Z",
+      "updatedAt": "2025-03-17T13:06:42.859Z",
+      "id": "Fcqhqfi5hGHHR7nn",
+      "name": "UserData"
+    }
+  ]
+}
