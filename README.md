@@ -7,6 +7,18 @@ By leveraging automation, it eliminates manual data entry, ensuring a smooth and
 
 ---
 
+## 🔧 Prerequisites
+
+Before setting up this workflow, ensure you have the following ready:
+
+- [n8n account](https://n8n.partnerlinks.io/om1efg2qgvwi) to create, configure, and run the automation workflow
+- Airtable account with an existing base and table structure prepared for storing form submissions
+- A configured form input source using n8n Form Trigger (or equivalent form submission setup)
+- Basic understanding of field mapping between form inputs and Airtable columns
+- API access/credentials for Airtable connected in n8n
+
+---
+
 ## ✅ Workflow Steps
 
 ### 1. Trigger on Form Submission (Form Node)
@@ -48,5 +60,3 @@ By leveraging automation, it eliminates manual data entry, ensuring a smooth and
 
 ## 📆 Summary
 With this workflow in place, your business can easily automate form submissions and organize data in Airtable without lifting a finger. Stay focused on your core activities while the workflow handles data collection and storage efficiently.
-
----
